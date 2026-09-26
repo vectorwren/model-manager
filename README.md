@@ -16,7 +16,7 @@ shipped as a Docker image.
 
 ## Quick Start
 
-The image is published to Docker Hub as `vectorwren/model-manager:latest` (or build it
+The image is published to GHCR as `ghcr.io/vectorwren/model-manager:latest` (or build it
 locally). Models are written to a **host directory you choose**, bind-mounted into the
 container at `/models`. Set `MODELS_HOST_PATH` (default `/mnt/models`) to point at your
 ZFS dataset / local dir / NFS mount.
@@ -29,7 +29,7 @@ docker compose up -d
 
 ### Using plain Docker
 ```bash
-docker pull vectorwren/model-manager:latest        # or: docker build -t model-manager:latest .
+docker pull ghcr.io/vectorwren/model-manager:latest        # or: docker build -t model-manager:latest .
 MODELS_HOST_PATH=/tank/models ./docker-run.sh
 ```
 
@@ -218,7 +218,7 @@ This is a common pattern for a GPU box (e.g. a Tesla host) that stores models on
 
 - **Build (automated):** every push/merge to `main` runs `.github/workflows/docker-build.yml` —
   the `test` job (pytest + pip-audit) then `build`, which builds and publishes
-  `vectorwren/model-manager:latest` to Docker Hub.
+  `ghcr.io/vectorwren/model-manager:latest` to GHCR.
 - **Deploy (manual):** the Portainer stack pulls that image. Because Portainer is on a private
   LAN, GitHub can't auto-trigger a redeploy — run the stack's webhook (from the LAN) to pull the
   latest image and recreate the container:

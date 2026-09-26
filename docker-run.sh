@@ -35,4 +35,4 @@ docker run -d \
   --health-interval 10s \
   --health-timeout 5s \
   --health-retries 3 \
-  vectorwren/model-manager:latest
+  ghcr.io/vectorwren/model-manager:latest
