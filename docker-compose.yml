@@ -1,6 +1,6 @@
 services:
   model-manager:
-    image: REDACTED/model-manager:latest
+    image: vectorwren/model-manager:latest
     pull_policy: always
     container_name: model-manager
     restart: unless-stopped
